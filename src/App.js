@@ -1,13 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import ProductsPage from './FirstPage/ProductsPage';
 import Header from './Components/Header';
+import AllRoutes from './Components/AllRoutes';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <ProductsPage/>
+      <BrowserRouter>
+        <Header/>
+        <AllRoutes/>
+      </BrowserRouter>
     </div>
   );
 }
