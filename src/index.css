@@ -54,6 +54,7 @@ code {
 .lower-part {
   justify-content: space-between;
   align-items: center;
+  padding: 0px 10px;
 }
 .addToCartBtn {
   padding: 8px;
@@ -61,7 +62,7 @@ code {
 }
 .item {
   margin: auto;
-  padding: 18px 18px 0px;
+  /* padding: 18px 18px 0px; */
   background-color: rgb(205, 201, 196);
   border-radius: 8px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

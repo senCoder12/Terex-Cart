@@ -1,28 +1,22 @@
 import React from 'react'
 import { useEffect } from 'react';
-import { useState } from 'react'
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllproducts } from '../Redux/Features/ProductSlice';
 import SingleProduct from './singleProduct'
 
 function ProductsComp() {
   const [products,setProducts] = useState([]);
-  const getProducts = () => {
-    fetch("https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json")
-    .then((res) => {
-      return res.json()
-    }).then((products) => {
-      setProducts(products)
-    }).catch(() => {
-      setProducts([]);
-    });
-  }
+  const dispatch = useDispatch();
+  const {allProducts} = useSelector((state)=>({...state.products})); 
   useEffect(() => {
-    getProducts();
+    dispatch(getAllproducts());
   },[])
   return (
     <div className='products'>
       {
-        products.map((product) =>{
-          return <SingleProduct product={product}/>
+        allProducts.map((product) =>{
+          return <SingleProduct product={product} key={Math.random()+new Date()}/>
         })
       }
         
